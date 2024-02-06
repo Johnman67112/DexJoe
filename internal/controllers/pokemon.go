@@ -6,6 +6,9 @@ import (
 	"github.com/Johnman67112/dexJoe/internal/domain"
 	"github.com/Johnman67112/dexJoe/internal/infra"
 	"github.com/gin-gonic/gin"
+
+	_ "github.com/swaggo/swag/example/celler/httputil"
+	_ "github.com/swaggo/swag/example/celler/model"
 )
 
 func RegisterPokemon(c *gin.Context) {
