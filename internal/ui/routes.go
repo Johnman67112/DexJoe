@@ -25,5 +25,8 @@ func HandleRequests() {
 	r.DELETE("/pokemon/:id", controllers.DeletePokemon)
 	r.PATCH("/pokemon/:id", controllers.EditPokemon)
 
+	r.GET("/index", controllers.ShowIndex)
+	r.NoRoute(controllers.RouteNotFound)
+
 	r.Run()
 }
