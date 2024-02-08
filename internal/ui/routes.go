@@ -4,11 +4,10 @@ import (
 	"github.com/Johnman67112/dexJoe/internal/controllers"
 	"github.com/gin-gonic/gin"
 
+	"github.com/Johnman67112/dexJoe/docs"
 	swaggerfiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
 )
-
-//"github.com/Johnman67112/dexJoe/docs"
 
 func HandleRequests() {
 	r := gin.Default()
@@ -16,7 +15,7 @@ func HandleRequests() {
 	r.LoadHTMLGlob("templates/*")
 	r.Static("/assets", "./assets")
 
-	//docs.SwaggerInfo.BasePath = "/"
+	docs.SwaggerInfo.BasePath = "/"
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerfiles.Handler))
 
 	r.GET("/pokemon", controllers.GetPokemon)

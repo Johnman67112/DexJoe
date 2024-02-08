@@ -1,0 +1,119 @@
+definitions:
+  domain.Pokemon:
+    properties:
+      heigh:
+        type: number
+      name:
+        type: string
+      number:
+        type: integer
+      type:
+        type: string
+      weight:
+        type: number
+    type: object
+info:
+  contact: {}
+paths:
+  /index:
+    get:
+      consumes:
+      - application/json
+      description: Route to show index
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Show index page
+      tags:
+      - front
+  /pokemon:
+    delete:
+      consumes:
+      - application/json
+      description: With number delete a Pokemon
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/domain.Pokemon'
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Deletes a Pokemon
+      tags:
+      - Pokemon
+    get:
+      consumes:
+      - application/json
+      description: Route to show one pokemon with number
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/domain.Pokemon'
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Show one pokemon
+      tags:
+      - pokemon
+    patch:
+      consumes:
+      - application/json
+      description: With params edit a Pokemon
+      parameters:
+      - description: Pokemon Model
+        in: body
+        name: Pokemon
+        required: true
+        schema:
+          $ref: '#/definitions/domain.Pokemon'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/domain.Pokemon'
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Edit a Pokemon
+      tags:
+      - Pokemon
+    post:
+      consumes:
+      - application/json
+      description: With params register a new Pokemon
+      parameters:
+      - description: Pokemon Model
+        in: body
+        name: Pokemon
+        required: true
+        schema:
+          $ref: '#/definitions/domain.Pokemon'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/domain.Pokemon'
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Register a new Pokemon
+      tags:
+      - Pokemon
+swagger: "2.0"

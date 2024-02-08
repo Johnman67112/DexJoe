@@ -8,6 +8,15 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// ShowIndex godoc
+// @Summary      Show index page
+// @Description  Route to show index
+// @Tags         front
+// @Accept       json
+// @Produce      json
+// @Success      200  {object}  string
+// @Failure      400  {object}  error
+// @Router       /index [get]
 func ShowIndex(c *gin.Context) {
 	var pokemon []domain.Pokemon
 	infra.DB.Find(&pokemon)
